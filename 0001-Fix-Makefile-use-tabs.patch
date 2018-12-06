@@ -1,0 +1,24 @@
+From 170597c4ca62384222d4ca75fcfc226cb06c3d74 Mon Sep 17 00:00:00 2001
+From: William Douglas <william.douglas@intel.com>
+Date: Thu, 6 Dec 2018 10:49:40 -0800
+Subject: [PATCH] Fix Makefile, use tabs
+
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index dc7fa5b..046c783 100644
+--- a/Makefile
++++ b/Makefile
+@@ -5,5 +5,5 @@ TARGET ?= $(PREFIX)/share/
+ all:
+ 
+ install:
+-        install -m 0755 -d $(DESTDIR)/$(TARGET)/clr-k8s-examples
+-        cp -r clr-k8s-examples/* $(DESTDIR)/$(TARGET)/clr-k8s-examples/
++	install -m 0755 -d $(DESTDIR)/$(TARGET)/clr-k8s-examples
++	cp -r clr-k8s-examples/* $(DESTDIR)/$(TARGET)/clr-k8s-examples/
+-- 
+2.19.2
+
