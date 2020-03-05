@@ -4,7 +4,7 @@
 #
 Name     : cloud-native-setup
 Version  : 1.17
-Release  : 13
+Release  : 14
 URL      : https://github.com/clearlinux/cloud-native-setup/archive/v1.17.tar.gz
 Source0  : https://github.com/clearlinux/cloud-native-setup/archive/v1.17.tar.gz
 Summary  : No detailed summary available
@@ -42,7 +42,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583429538
+export SOURCE_DATE_EPOCH=1583430419
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -52,7 +52,7 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1583429538
+export SOURCE_DATE_EPOCH=1583430419
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/cloud-native-setup
 cp %{_builddir}/cloud-native-setup-1.17/LICENSE %{buildroot}/usr/share/package-licenses/cloud-native-setup/7df059597099bb7dcf25d2a9aedfaf4465f72d8d
