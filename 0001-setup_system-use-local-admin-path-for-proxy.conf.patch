@@ -1,0 +1,32 @@
+From fc226298af2e8846b8262f98edda89094287a1de Mon Sep 17 00:00:00 2001
+From: Miguel Bernal Marin <miguel.bernal.marin@linux.intel.com>
+Date: Sun, 24 May 2020 00:26:57 -0500
+Subject: [PATCH] setup_system: use local admin path for proxy.conf
+
+Currently the system.conf.d/proxy.conf file is saved at /usr/lib
+which is the vendor path, and can be dropped by
+"swupd repair --picky --force".
+
+This commit creates the local administrator /etc/systemd/system.conf.d
+directory and store the proxy.conf inside.
+---
+ clr-k8s-examples/setup_system.sh | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/clr-k8s-examples/setup_system.sh b/clr-k8s-examples/setup_system.sh
+index ca789f1..2238e27 100755
+--- a/clr-k8s-examples/setup_system.sh
++++ b/clr-k8s-examples/setup_system.sh
+@@ -161,7 +161,8 @@ function setup_proxy() {
+ 			echo "Warning, failed to find /etc/profile.d/proxy.sh to edit no_proxy line"
+ 		fi
+ 
+-		cat <<EOF | sudo bash -c "cat > /usr/lib/systemd/system.conf.d/proxy.conf"
++		sudo mkdir -p /etc/systemd/system.conf.d
++		cat <<EOF | sudo bash -c "cat > /etc/systemd/system.conf.d/proxy.conf"
+ [Manager]
+ DefaultEnvironment="HTTP_PROXY=${http_proxy}"
+ DefaultEnvironment="HTTPS_PROXY=${https_proxy}"
+-- 
+2.26.2
+
